@@ -7,7 +7,7 @@
     position: relative;
   }
 
-  $bar-width: 30px;
+  $bar-width: 28px;
   $bar-height: 3px;
   $bar-spacing: 8px;
   $animate-speed: 200ms;
@@ -90,6 +90,8 @@
     line-height: 1.75rem;
 
     @media (min-width: $grid-breakpoints-md) {
+      height: 2.75rem;
+      line-height: 2.75rem;
       font-size: 1.75rem;
     }
   }
@@ -97,11 +99,12 @@
   .c-header__collapse {
     max-height: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
+    display: block;
     transition: max-height 0.4s;
 
     @media (min-width: $grid-breakpoints-md) {
+      display: flex;
+      align-items: center;
       max-height: none;
       justify-content: flex-end;
     }
@@ -150,6 +153,18 @@
         padding-top: 0;
         padding-bottom: 0;
       }
+    }
+  }
+
+  .c-header__cart {
+    padding-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+
+    @media (min-width: $grid-breakpoints-md) {
+      padding-top: 0;
+      padding-left: 1rem;
+      justify-content: flex-end;
     }
   }
 }

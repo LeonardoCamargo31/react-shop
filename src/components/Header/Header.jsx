@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import Button from '../Button/Button'
 
 class Header extends Component {
   constructor(props) {
@@ -69,6 +70,13 @@ class Header extends Component {
                   </a>
                 </li>
               </ul>
+              <div className="c-header__cart">
+                <Button
+                  type="primary"
+                  iconName="IoMdCart"
+                  text="Nenhum produto"
+                />
+              </div>
             </Col>
           </Row>
         </Grid>

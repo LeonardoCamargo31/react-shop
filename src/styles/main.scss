@@ -2,12 +2,17 @@
 @import 'reset';
 
 /** settings **/
-body{
-  font-family: 'Roboto', sans-serif;
+body {
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 16px;
 }
 
+$color-pink:rgb(242, 49, 165);
+$color-black:rgb(0, 0, 0);
+$color-white:rgb(255, 255, 255);
+$color-blue:rgb(3, 4, 24);
+$color-green:rgb(60, 211, 193);
 
 $grid-breakpoints-xs: 0;
 $grid-breakpoints-sm: 576px;
@@ -23,7 +28,8 @@ $grid-breakpoints-xl: 1200px;
 @import 'objects';
 
 /** components **/
-@import '../components/Header.scss';
+@import '../components/Button/Button.scss';
+@import '../components/Header/Header.scss';
 
 /** containers **/
 
