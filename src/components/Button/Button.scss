@@ -4,10 +4,12 @@
   border-radius: 0.3rem;
   text-decoration: none;
   font-size: 1rem;
+  font-weight: 600;
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
   height: 2.75rem;
+  transition: background 0.3s ease-in-out 0s;
 
   span {
     height: 20px;
@@ -18,5 +20,9 @@
   &--primary {
     color: $color-white;
     background-color: $color-pink;
+
+    &:hover {
+      background: rgb(226, 14, 141);
+    }
   }
 }

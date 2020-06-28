@@ -1,0 +1,21 @@
+.c-product {
+  .c-product__image {
+    height: 260px;
+    margin-bottom: 1.25rem;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  h3 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .c-product__price {
+    margin-bottom: 2.375rem;
+  }
+}

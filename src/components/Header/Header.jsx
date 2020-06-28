@@ -34,7 +34,7 @@ class Header extends Component {
       <header className="c-header">
         <Grid>
           <Row>
-            <Col xs={12} md={3} className="c-header__logo">
+            <Col sm={12} md={3} className="c-header__logo">
               Reactshop
             </Col>
 
@@ -42,31 +42,26 @@ class Header extends Component {
               <div className="c-header__toggle-bar" />
             </a>
 
-            <Col xs={12} md={9} className="c-header__collapse">
+            <Col sm={12} md={9} className="c-header__collapse">
               <ul className="c-header__nav">
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">
-                    Item 1
+                    Home
                   </a>
                 </li>
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">
-                    Item 1
+                    Sobre
                   </a>
                 </li>
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">
-                    Item 1
+                    Produtos
                   </a>
                 </li>
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">
-                    Item 1
-                  </a>
-                </li>
-                <li className="c-header__nav-item">
-                  <a className="c-header__nav-link" href="#">
-                    Item 1
+                    Contato
                   </a>
                 </li>
               </ul>

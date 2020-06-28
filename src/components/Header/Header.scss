@@ -1,7 +1,7 @@
 .c-header {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  background-color: #f1f1f1;
+  background-color: $color-gray;
 
   .container {
     position: relative;
@@ -43,7 +43,7 @@
     .c-header__toggle-bar {
       position: relative;
       transform: translateY($bar-spacing);
-      background: rgba(0, 0, 0, 1);
+      background: $color-white;
       transition: all 0ms $animate-speed;
 
       &.c-header__toggle-bar--close {
@@ -56,7 +56,7 @@
       position: absolute;
       left: 0;
       bottom: $bar-spacing;
-      background: rgba(0, 0, 0, 1);
+      background: $color-white;
       transition: bottom $animate-speed $animate-speed cubic-bezier(0.23, 1, 0.32, 1), transform $animate-speed cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -65,7 +65,7 @@
       position: absolute;
       left: 0;
       top: $bar-spacing;
-      background: rgba(0, 0, 0, 1);
+      background: $color-white;
       transition: top $animate-speed $animate-speed cubic-bezier(0.23, 1, 0.32, 1), transform $animate-speed cubic-bezier(0.23, 1, 0.32, 1);
     }
 
@@ -86,6 +86,7 @@
     font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 700;
+    color: $color-white;
     height: 1.75rem;
     line-height: 1.75rem;
 
@@ -118,7 +119,6 @@
     display: flex;
     flex-direction: column;
     flex: 1;
-    background-color: #fff;
     margin-top: 0.75rem;
 
     @media (min-width: $grid-breakpoints-md) {
@@ -144,7 +144,7 @@
       padding-bottom: 0.5rem;
       padding-right: 0.75rem;
       padding-left: 0.75rem;
-      color: #000;
+      color: $color-white;
       text-decoration: none;
       text-align: center;
 
@@ -163,7 +163,7 @@
 
     @media (min-width: $grid-breakpoints-md) {
       padding-top: 0;
-      padding-left: 1rem;
+      padding-left: 2rem;
       justify-content: flex-end;
     }
   }
