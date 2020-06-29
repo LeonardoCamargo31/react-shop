@@ -15,17 +15,21 @@ const renderLink = (link, text, iconName, type) => (
   </Link>
 )
 
-const renderButton = (text, iconName, type) => (
-  <button type="button" className={`c-button c-button--${type}`}>
+const renderButton = (text, iconName, type, onClick) => (
+  <button
+    onClick={onClick}
+    type="button"
+    className={`c-button c-button--${type}`}
+  >
     {iconName ? renderIcon(iconName) : null}
     {text}
   </button>
 )
 
-const Button = ({ link, text, iconName, type }) => {
+const Button = ({ onClick, link, text, iconName, type }) => {
   return link
     ? renderLink(link, text, iconName, type)
-    : renderButton(text, iconName, type)
+    : renderButton(text, iconName, type, onClick)
 }
 
 Button.defaultProps = {

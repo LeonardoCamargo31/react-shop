@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
+import Cart from '../Cart/Cart'
 
 import Button from '../Button/Button'
 
@@ -10,9 +11,27 @@ class Header extends Component {
 
     this.state = {
       toggleIsActive: false,
+      cartIsOpen: false,
     }
 
     this.handleToogle = this.handleToogle.bind(this)
+    this.handleCart = this.handleCart.bind(this)
+  }
+
+  handleCart() {
+    const { cartIsOpen } = this.state
+    const root = document.querySelector('.c-cart__backdrop')
+    const body = document.querySelector('body')
+
+    if (cartIsOpen) {
+      body.style.overflow = 'auto'
+      root.classList.remove('c-cart__backdrop--open')
+      this.setState({ cartIsOpen: false })
+    } else {
+      body.style.overflow = 'hidden'
+      this.setState({ cartIsOpen: true })
+      root.classList.add('c-cart__backdrop--open')
+    }
   }
 
   handleToogle() {
@@ -32,54 +51,71 @@ class Header extends Component {
   }
 
   render() {
+    const { cartIsOpen } = this.state
     return (
-      <header className="c-header">
-        <Grid>
-          <Row>
-            <Col sm={12} md={3} className="c-header__logo">
-              <Link to="/" title="">
-                Reactshop
-              </Link>
-            </Col>
+      <>
+        <Cart isOpen={cartIsOpen} closeCart={this.handleCart} />
+        <header className="c-header">
+          <Grid>
+            <Row>
+              <Col sm={12} md={3} className="c-header__logo">
+                <Link to="/" title="">
+                  Reactshop
+                </Link>
+              </Col>
 
-            <a className="c-header__nav-toggle" onClick={this.handleToogle}>
-              <div className="c-header__toggle-bar" />
-            </a>
+              <a className="c-header__nav-toggle" onClick={this.handleToogle}>
+                <div className="c-header__toggle-bar" />
+              </a>
 
-            <Col sm={12} md={9} className="c-header__collapse">
-              <ul className="c-header__nav">
-                <li className="c-header__nav-item">
-                  <Link className="c-header__nav-link" to="/" title="">
-                    Home
-                  </Link>
-                </li>
-                <li className="c-header__nav-item">
-                  <a className="c-header__nav-link" href="#">
-                    Sobre
-                  </a>
-                </li>
-                <li className="c-header__nav-item">
-                  <Link className="c-header__nav-link" to="/produtos" title="">
-                    Produtos
-                  </Link>
-                </li>
-                <li className="c-header__nav-item">
-                  <a className="c-header__nav-link" href="#">
-                    Contato
-                  </a>
-                </li>
-              </ul>
-              <div className="c-header__cart">
-                <Button
-                  type="primary"
-                  iconName="IoMdCart"
-                  text="Nenhum produto"
-                />
-              </div>
-            </Col>
-          </Row>
-        </Grid>
-      </header>
+              <Col sm={12} md={9} className="c-header__collapse">
+                <ul className="c-header__nav">
+                  <li className="c-header__nav-item">
+                    <Link className="c-header__nav-link" to="/" title="Home">
+                      Home
+                    </Link>
+                  </li>
+                  <li className="c-header__nav-item">
+                    <a
+                      className="c-header__nav-link"
+                      href="/sobre"
+                      title="Sobre"
+                    >
+                      Sobre
+                    </a>
+                  </li>
+                  <li className="c-header__nav-item">
+                    <Link
+                      className="c-header__nav-link"
+                      to="/produtos"
+                      title="Produtos"
+                    >
+                      Produtos
+                    </Link>
+                  </li>
+                  <li className="c-header__nav-item">
+                    <a
+                      className="c-header__nav-link"
+                      href="/contato"
+                      title="Contato"
+                    >
+                      Contato
+                    </a>
+                  </li>
+                </ul>
+                <div className="c-header__cart">
+                  <Button
+                    onClick={this.handleCart}
+                    type="primary"
+                    iconName="IoMdCart"
+                    text="Nenhum produto"
+                  />
+                </div>
+              </Col>
+            </Row>
+          </Grid>
+        </header>
+      </>
     )
   }
 }

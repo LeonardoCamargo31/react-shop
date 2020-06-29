@@ -21,22 +21,30 @@ const Footer = () => {
               <h4>Links</h4>
               <ul>
                 <li className="footer__nav-item">
-                  <Link className="footer__nav-link" to="/" title="">
+                  <Link className="footer__nav-link" to="/" title="Home">
                     Home
                   </Link>
                 </li>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <a className="footer__nav-link" href="/sobre" title="Sobre">
                     Sobre
                   </a>
                 </li>
                 <li className="footer__nav-item">
-                  <Link className="footer__nav-link" to="/produtos" title="">
+                  <Link
+                    className="footer__nav-link"
+                    to="/produtos"
+                    title="Produtos"
+                  >
                     Produtos
                   </Link>
                 </li>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <a
+                    className="footer__nav-link"
+                    href="/contato"
+                    title="Contato"
+                  >
                     Contato
                   </a>
                 </li>
@@ -46,17 +54,29 @@ const Footer = () => {
               <h4>Alguma dúvida?</h4>
               <ul>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <a
+                    className="footer__nav-link"
+                    href="/termos-de-uso"
+                    title="Termos de Uso"
+                  >
                     Termos de Uso
                   </a>
                 </li>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <a
+                    className="footer__nav-link"
+                    href="/politica-de-privacidade"
+                    title="Política de Privacidade"
+                  >
                     Política de Privacidade
                   </a>
                 </li>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <a
+                    className="footer__nav-link"
+                    href="/perguntas-frequentes"
+                    title="Perguntas Frequentes"
+                  >
                     Perguntas Frequentes
                   </a>
                 </li>

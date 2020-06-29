@@ -14,9 +14,6 @@
 
   @media (min-width: $grid-breakpoints-md) {
     flex-direction: row;
-  }
-
-  @media (min-width: $grid-breakpoints-md) {
     justify-content: space-between;
   }
 

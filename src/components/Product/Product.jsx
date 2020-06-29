@@ -1,4 +1,6 @@
+/* eslint-disable global-require */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
 
@@ -27,6 +29,17 @@ const Product = ({ title, price, image, priceOld }) => {
       </div>
     </div>
   )
+}
+
+Product.defaultProps = {
+  priceOld: null,
+}
+
+Product.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  priceOld: PropTypes.string,
 }
 
 export default Product
