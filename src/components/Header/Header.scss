@@ -12,6 +12,14 @@
   $bar-spacing: 8px;
   $animate-speed: 200ms;
 
+  .c-header__nav-toggle-button {
+    -webkit-appearance: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
   .c-header__nav-toggle {
     width: $bar-width;
     height: $bar-height + $bar-spacing*2;

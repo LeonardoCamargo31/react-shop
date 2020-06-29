@@ -1,25 +1,25 @@
 /* eslint-disable global-require */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IoIosCloseCircleOutline, IoMdSad } from 'react-icons/io'
+import { IoIosCloseCircleOutline } from 'react-icons/io'
 
 import Button from '../Button/Button'
 import ProductItem from '../ProductItem/ProductItem'
 
-const renderEmptyCart = () => (
-  <div className="c-cart__empty">
-    <div className="c-cart__empty-icons">
-      <IoMdSad />
-    </div>
-    <div className="c-cart__empty-content">
-      <h4>Seu carrinho está vazio</h4>
-      <p>
-        Adicione produtos clicando no botão <i>“Adicionar ao carrinho”</i> na
-        página de produto.
-      </p>
-    </div>
-  </div>
-)
+// const renderEmptyCart = () => (
+//   <div className="c-cart__empty">
+//     <div className="c-cart__empty-icons">
+//       <IoMdSad />
+//     </div>
+//     <div className="c-cart__empty-content">
+//       <h4>Seu carrinho está vazio</h4>
+//       <p>
+//         Adicione produtos clicando no botão <i>“Adicionar ao carrinho”</i> na
+//         página de produto.
+//       </p>
+//     </div>
+//   </div>
+// )
 
 const Cart = ({ isOpen, closeCart }) => {
   return (

@@ -64,13 +64,15 @@ class Header extends Component {
                 </Link>
               </Col>
 
-              <a
-                className="c-header__nav-toggle"
-                href="#"
+              <button
+                type="button"
+                className="c-header__nav-toggle-button"
                 onClick={this.handleToogle}
               >
-                <div className="c-header__toggle-bar" />
-              </a>
+                <div className="c-header__nav-toggle">
+                  <div className="c-header__toggle-bar" />
+                </div>
+              </button>
 
               <Col sm={12} md={9} className="c-header__collapse">
                 <ul className="c-header__nav">
