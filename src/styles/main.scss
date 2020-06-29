@@ -9,6 +9,7 @@ body {
 }
 
 $color-pink:rgb(242, 49, 165);
+$color-pink-hover:rgb(226, 14, 141);
 $color-black:rgb(0, 0, 0);
 $color-white:rgb(255, 255, 255);
 $color-gray:#0e0e0e;
@@ -33,6 +34,9 @@ $grid-breakpoints-xl: 1200px;
 @import '../components/HeaderContent/HeaderContent.scss';
 @import '../components/Product/Product.scss';
 @import '../components/Footer/Footer.scss';
+@import '../components/ProductFeatured/ProductFeatured.scss';
+@import '../components/Title/Title.scss';
+@import '../components/Cart/Cart.scss';
 
 /** containers **/
 

@@ -5,14 +5,15 @@
   text-decoration: none;
   font-size: 1rem;
   font-weight: 600;
-  padding: 0.75rem 1rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   height: 2.75rem;
   transition: background 0.3s ease-in-out 0s;
+  width: max-content;
 
   span {
-    height: 20px;
+    height: 1.25rem;
     margin-right: 0.5rem;
     font-size: 1.25rem;
   }
@@ -22,7 +23,7 @@
     background-color: $color-pink;
 
     &:hover {
-      background: rgb(226, 14, 141);
+      background: $color-pink-hover;
     }
   }
 }

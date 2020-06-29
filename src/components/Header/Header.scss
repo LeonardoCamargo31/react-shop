@@ -86,9 +86,13 @@
     font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 700;
-    color: $color-white;
     height: 1.75rem;
     line-height: 1.75rem;
+
+    a {
+      text-decoration: none;
+      color: $color-white;
+    }
 
     @media (min-width: $grid-breakpoints-md) {
       height: 2.75rem;

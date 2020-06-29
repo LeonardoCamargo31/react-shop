@@ -1,16 +1,30 @@
 import React from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
+import { Link } from 'react-router-dom'
 
-const image =
-  'https://images.freshop.com/00075181201010/e8d6867aed070bc949e07c4658802732_large.png'
-
-const Product = () => {
+const Product = ({ title, price, image, priceOld }) => {
   return (
     <div className="c-product">
       <div className="c-product__image">
-        <img src={image} alt="Produto" />
+        <Link to="/produto" title="">
+          <LazyLoadImage
+            alt=""
+            src={require(`../../images/${image}`)}
+            effect="blur"
+          />
+        </Link>
       </div>
-      <h3>Nome produto</h3>
-      <div className="c-product__price">R$ 20.99</div>
+      <h3>
+        <Link to="/produto" title="">
+          {title}
+        </Link>
+      </h3>
+      <div className="c-product__price">
+        <span className="c-product__price-current">R$ {price}</span>
+        {priceOld ? (
+          <span className="c-product__price-old">R$ {priceOld}</span>
+        ) : null}
+      </div>
     </div>
   )
 }

@@ -1,19 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as MaterialDesign from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
 const renderIcon = (iconName) => {
   const mdIcon = MaterialDesign[iconName]
   return <span>{React.createElement(mdIcon)}</span>
 }
 
-const Button = ({ text, iconName, type }) => {
-  return (
-    <button type="button" className={`c-button c-button--${type}`}>
-      {iconName ? renderIcon(iconName) : null}
-      {text}
-    </button>
-  )
+const renderLink = (link, text, iconName, type) => (
+  <Link to={link} title={text} className={`c-button c-button--${type}`}>
+    {iconName ? renderIcon(iconName) : null}
+    {text}
+  </Link>
+)
+
+const renderButton = (text, iconName, type) => (
+  <button type="button" className={`c-button c-button--${type}`}>
+    {iconName ? renderIcon(iconName) : null}
+    {text}
+  </button>
+)
+
+const Button = ({ link, text, iconName, type }) => {
+  return link
+    ? renderLink(link, text, iconName, type)
+    : renderButton(text, iconName, type)
 }
 
 Button.defaultProps = {

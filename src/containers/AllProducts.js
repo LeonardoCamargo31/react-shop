@@ -2,28 +2,20 @@ import React from 'react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 
 import Header from '../components/Header/Header'
-import HeaderContent from '../components/HeaderContent/HeaderContent'
-import Product from '../components/Product/Product'
 import Footer from '../components/Footer/Footer'
+import Product from '../components/Product/Product'
 import Title from '../components/Title/Title'
 
 import Products from './products.json'
 
-const Index = () => {
+const AllProducts = () => {
   return (
     <>
       <Header />
-      <Grid>
-        <Row>
-          <Col sm={12} md={7}>
-            <HeaderContent />
-          </Col>
-        </Row>
-      </Grid>
 
       <section className="o-section">
         <Grid>
-          <Title text="Produtos em destaque" />
+          <Title text="Todos os produtos" type="secondary" />
           <Row>
             {Products.map(({ title, price, filename, priceOld }) => (
               <Col sm={12} md={3}>
@@ -38,10 +30,9 @@ const Index = () => {
           </Row>
         </Grid>
       </section>
-
       <Footer />
     </>
   )
 }
 
-export default Index
+export default AllProducts

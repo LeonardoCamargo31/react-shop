@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import { Link } from 'react-router-dom'
+
 import Button from '../Button/Button'
 
 class Header extends Component {
@@ -35,7 +37,9 @@ class Header extends Component {
         <Grid>
           <Row>
             <Col sm={12} md={3} className="c-header__logo">
-              Reactshop
+              <Link to="/" title="">
+                Reactshop
+              </Link>
             </Col>
 
             <a className="c-header__nav-toggle" onClick={this.handleToogle}>
@@ -45,9 +49,9 @@ class Header extends Component {
             <Col sm={12} md={9} className="c-header__collapse">
               <ul className="c-header__nav">
                 <li className="c-header__nav-item">
-                  <a className="c-header__nav-link" href="#">
+                  <Link className="c-header__nav-link" to="/" title="">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">
@@ -55,9 +59,9 @@ class Header extends Component {
                   </a>
                 </li>
                 <li className="c-header__nav-item">
-                  <a className="c-header__nav-link" href="#">
+                  <Link className="c-header__nav-link" to="/produtos" title="">
                     Produtos
-                  </a>
+                  </Link>
                 </li>
                 <li className="c-header__nav-item">
                   <a className="c-header__nav-link" href="#">

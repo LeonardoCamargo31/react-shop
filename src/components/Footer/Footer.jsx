@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 import { IoLogoInstagram, IoLogoFacebook, IoLogoGithub } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -9,16 +10,20 @@ const Footer = () => {
         <div className="c-footer__content">
           <Row>
             <Col sm={12} md={3}>
-              <div className="c-footer__logo">Reactshop</div>
+              <div className="c-footer__logo">
+                <Link to="/" title="">
+                  Reactshop
+                </Link>
+              </div>
               <p>Você não pode viver sem.</p>
             </Col>
             <Col sm={12} md={3}>
               <h4>Links</h4>
               <ul>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <Link className="footer__nav-link" to="/" title="">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer__nav-item">
                   <a className="footer__nav-link" href="#" title="">
@@ -26,9 +31,9 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="footer__nav-item">
-                  <a className="footer__nav-link" href="#" title="">
+                  <Link className="footer__nav-link" to="/produtos" title="">
                     Produtos
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer__nav-item">
                   <a className="footer__nav-link" href="#" title="">
@@ -61,17 +66,35 @@ const Footer = () => {
               <h4>Siga nossas redes</h4>
               <ul className="footer__social">
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="#" title="">
+                  <a
+                    className="footer__social-link"
+                    href="https://github.com/LeonardoCamargo31"
+                    target="_blank"
+                    rel="noreferrer"
+                    title=""
+                  >
                     <IoLogoInstagram />
                   </a>
                 </li>
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="#" title="">
+                  <a
+                    className="footer__social-link"
+                    href="https://github.com/LeonardoCamargo31"
+                    target="_blank"
+                    rel="noreferrer"
+                    title=""
+                  >
                     <IoLogoFacebook />
                   </a>
                 </li>
                 <li className="footer__social-item">
-                  <a className="footer__social-link" href="#" title="">
+                  <a
+                    className="footer__social-link"
+                    href="https://github.com/LeonardoCamargo31"
+                    target="_blank"
+                    rel="noreferrer"
+                    title=""
+                  >
                     <IoLogoGithub />
                   </a>
                 </li>
@@ -85,7 +108,13 @@ const Footer = () => {
           <Row>
             <Col sm={12}>
               Desenvolvido por
-              <a className="footer__signature-link" href="" title="">
+              <a
+                className="footer__signature-link"
+                href="https://github.com/LeonardoCamargo31"
+                target="_blank"
+                rel="noreferrer"
+                title=""
+              >
                 Leonardo Camargo
               </a>
             </Col>
