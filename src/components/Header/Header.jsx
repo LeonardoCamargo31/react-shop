@@ -64,7 +64,11 @@ class Header extends Component {
                 </Link>
               </Col>
 
-              <a className="c-header__nav-toggle" onClick={this.handleToogle}>
+              <a
+                className="c-header__nav-toggle"
+                href="#"
+                onClick={this.handleToogle}
+              >
                 <div className="c-header__toggle-bar" />
               </a>
 

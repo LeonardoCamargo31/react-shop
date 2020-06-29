@@ -90,7 +90,7 @@ const Footer = () => {
                     className="footer__social-link"
                     href="https://github.com/LeonardoCamargo31"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     title=""
                   >
                     <IoLogoInstagram />
@@ -101,7 +101,7 @@ const Footer = () => {
                     className="footer__social-link"
                     href="https://github.com/LeonardoCamargo31"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     title=""
                   >
                     <IoLogoFacebook />
@@ -112,7 +112,7 @@ const Footer = () => {
                     className="footer__social-link"
                     href="https://github.com/LeonardoCamargo31"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     title=""
                   >
                     <IoLogoGithub />
@@ -132,7 +132,7 @@ const Footer = () => {
                 className="footer__signature-link"
                 href="https://github.com/LeonardoCamargo31"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 title=""
               >
                 Leonardo Camargo
