@@ -1,0 +1,16 @@
+.c-input-text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  label {
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color:#f9f9fb;
+    height: 40px;
+  }
+}

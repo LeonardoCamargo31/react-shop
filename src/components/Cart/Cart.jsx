@@ -1,34 +1,22 @@
 /* eslint-disable global-require */
 import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import PropTypes from 'prop-types'
-import {
-  IoIosRemoveCircleOutline,
-  IoIosAddCircleOutline,
-  IoIosCloseCircleOutline,
-} from 'react-icons/io'
+import { IoIosCloseCircleOutline, IoMdSad } from 'react-icons/io'
 
 import Button from '../Button/Button'
+import ProductItem from '../ProductItem/ProductItem'
 
-const renderCartProduct = () => (
-  <div className="c-cart__product-item">
-    <div className="c-cart__product-image">
-      <LazyLoadImage alt="" src={require(`../../images/0.jpg`)} effect="blur" />
+const renderEmptyCart = () => (
+  <div className="c-cart__empty">
+    <div className="c-cart__empty-icons">
+      <IoMdSad />
     </div>
-    <div className="c-cart__product-content">
-      <h3>Nome do produto</h3>
-      <div className="c-cart__product-actions">
-        <div className="c-cart__product-action-remove">
-          <IoIosRemoveCircleOutline />
-        </div>
-        <div className="c-cart__product-action-amount">4</div>
-        <div className="c-cart__product-action-add">
-          <IoIosAddCircleOutline />
-        </div>
-      </div>
-    </div>
-    <div className="c-product__price">
-      <span className="c-product__price-current">R$ 25,50</span>
+    <div className="c-cart__empty-content">
+      <h4>Seu carrinho está vazio</h4>
+      <p>
+        Adicione produtos clicando no botão <i>“Adicionar ao carrinho”</i> na
+        página de produto.
+      </p>
     </div>
   </div>
 )
@@ -50,9 +38,10 @@ const Cart = ({ isOpen, closeCart }) => {
             </div>
           </div>
 
-          <div>
-            {renderCartProduct()}
-            {renderCartProduct()}
+          <div className="c-cart__content">
+            <ProductItem />
+            <ProductItem />
+            <ProductItem />
           </div>
           <div className="c-cart__bottom">
             <div className="c-cart__bottom-total">
@@ -61,6 +50,8 @@ const Cart = ({ isOpen, closeCart }) => {
             </div>
 
             <Button
+              onClick={closeCart}
+              link="/checkout"
               type="primary"
               iconName="IoMdCart"
               text="Finalizar compra"

@@ -8,8 +8,13 @@ const renderIcon = (iconName) => {
   return <span>{React.createElement(mdIcon)}</span>
 }
 
-const renderLink = (link, text, iconName, type) => (
-  <Link to={link} title={text} className={`c-button c-button--${type}`}>
+const renderLink = (link, text, iconName, type, onClick) => (
+  <Link
+    onClick={onClick}
+    to={link}
+    title={text}
+    className={`c-button c-button--${type}`}
+  >
     {iconName ? renderIcon(iconName) : null}
     {text}
   </Link>
@@ -28,7 +33,7 @@ const renderButton = (text, iconName, type, onClick) => (
 
 const Button = ({ onClick, link, text, iconName, type }) => {
   return link
-    ? renderLink(link, text, iconName, type)
+    ? renderLink(link, text, iconName, type, onClick)
     : renderButton(text, iconName, type, onClick)
 }
 
