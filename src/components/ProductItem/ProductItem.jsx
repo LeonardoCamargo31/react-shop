@@ -1,16 +1,12 @@
 import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { IoIosRemoveCircleOutline, IoIosAddCircleOutline } from 'react-icons/io'
+import ProductImage from '../ProductImage/ProductImage'
 
 const ProductItem = () => {
   return (
     <div className="c-product-item">
       <div className="c-product-item__image">
-        <LazyLoadImage
-          alt=""
-          src={require(`../../images/0.jpg`)}
-          effect="blur"
-        />
+        <ProductImage image="0.jpg" alt="Produto" />
       </div>
       <div className="c-product-item__content">
         <h3>Nome do produto</h3>

@@ -12,14 +12,16 @@
   transition:
     transform 0.4s ease-out,
     visibility 0.4s ease-out;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @media (min-width: $grid-breakpoints-md) {
+    width: 550px;
+  }
 
   &--open {
     transform: translateX(0);
     visibility: visible;
-  }
-
-  @media (min-width: $grid-breakpoints-md) {
-    width: 550px;
   }
 }
 

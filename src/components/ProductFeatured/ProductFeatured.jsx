@@ -1,6 +1,6 @@
 import React from 'react'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Grid, Row, Col } from 'react-flexbox-grid'
+import ProductImage from '../ProductImage/ProductImage'
 
 import Button from '../Button/Button'
 
@@ -11,11 +11,7 @@ const Product = () => {
         <Row>
           <Col sm={12} md={6}>
             <div className="c-product-featured__image">
-              <LazyLoadImage
-                alt=""
-                src={require(`../../images/0.jpg`)}
-                effect="blur"
-              />
+              <ProductImage image="0.jpg" alt="Produto" />
             </div>
           </Col>
           <Col sm={12} md={6}>

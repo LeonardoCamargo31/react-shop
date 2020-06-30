@@ -1,19 +1,15 @@
 /* eslint-disable global-require */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
 import { Link } from 'react-router-dom'
+import ProductImage from '../ProductImage/ProductImage'
 
 const Product = ({ title, price, image, priceOld }) => {
   return (
     <div className="c-product">
       <div className="c-product__image">
         <Link to="/produto" title="">
-          <LazyLoadImage
-            alt=""
-            src={require(`../../images/${image}`)}
-            effect="blur"
-          />
+          <ProductImage image={image} alt={title} />
         </Link>
       </div>
       <h3>

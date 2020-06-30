@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import React from 'react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
-import { LazyLoadImage } from 'react-lazy-load-image-component'
+import ProductImage from '../ProductImage/ProductImage'
 
 import Button from '../Button/Button'
 
@@ -29,11 +29,7 @@ const HeaderContent = () => {
           </Col>
           <Col sm={12} md={4}>
             <div className="c-header-content__image">
-              <LazyLoadImage
-                alt=""
-                src={require(`../../images/12.jpg`)}
-                effect="blur"
-              />
+              <ProductImage image="12.jpg" alt="Produto" />
             </div>
           </Col>
         </Row>

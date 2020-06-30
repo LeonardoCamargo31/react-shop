@@ -41,7 +41,6 @@ const Cart = ({ isOpen, closeCart }) => {
           <div className="c-cart__content">
             <ProductItem />
             <ProductItem />
-            <ProductItem />
           </div>
           <div className="c-cart__bottom">
             <div className="c-cart__bottom-total">
