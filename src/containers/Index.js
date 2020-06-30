@@ -13,13 +13,7 @@ const Index = () => {
   return (
     <>
       <Header />
-      <Grid>
-        <Row>
-          <Col sm={12} md={7}>
-            <HeaderContent />
-          </Col>
-        </Row>
-      </Grid>
+      <HeaderContent />
 
       <section className="o-section">
         <Grid>

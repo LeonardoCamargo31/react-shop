@@ -1,16 +1,12 @@
 .c-title {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
   padding-bottom: 1rem;
   flex-direction: column;
   justify-content: flex-start;
-
-  &--secondary {
-    border-bottom: 1px solid #eee;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
+  border-bottom: 1px solid #eee;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 
   @media (min-width: $grid-breakpoints-md) {
     flex-direction: row;

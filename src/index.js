@@ -9,7 +9,6 @@ import AllProducts from './containers/AllProducts'
 import Checkout from './containers/Checkout'
 
 import './styles/main.scss'
-import 'react-credit-cards/es/styles-compiled.css'
 
 ReactDOM.render(
   <BrowserRouter>
