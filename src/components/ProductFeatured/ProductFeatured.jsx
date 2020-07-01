@@ -1,56 +1,71 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-import ProductImage from '../ProductImage/ProductImage'
+import PropTypes from 'prop-types'
 
+import ProductImage from '../ProductImage/ProductImage'
 import Button from '../Button/Button'
 
-const Product = () => {
+const ProductFeatured = ({
+  id,
+  title,
+  price,
+  filename,
+  priceOld,
+  description,
+  color,
+  team,
+  genre,
+  brand,
+}) => {
   return (
     <Grid>
       <div className="c-product-featured">
         <Row>
           <Col sm={12} md={6}>
             <div className="c-product-featured__image">
-              <ProductImage image="0.jpg" alt="Produto" />
+              <ProductImage image={filename} alt={title} />
             </div>
           </Col>
           <Col sm={12} md={6}>
             <div className="c-product-featured__content">
-              <h1 className="c-product-featured__title">
-                Camisa Real Madrid Home 19/20
-              </h1>
+              <h1 className="c-product-featured__title">{title}</h1>
               <div className="c-product-featured__price">
                 <span className="c-product-featured__price-current">
-                  R$ 199.00
+                  R$ {price}
                 </span>
-                <span className="c-product-featured__price-old">R$ 199.00</span>
+                {priceOld && (
+                  <span className="c-product-featured__price-old">
+                    R$ {priceOld}
+                  </span>
+                )}
               </div>
               <div className="c-product-featured__discount">
                 Economia de R$ 30,00 (10%)
               </div>
 
-              <p>
-                O novo manto Rubro-Negro está pronto para te acompanhar na
-                torcida pelo Maior do Brasil. A nova Camisa I do Flamengo
-                Torcedor Adidas chega com peso para complementar a sua coleção.
-                As faixas um pouco mais finas, contam com grafismos em 3D que
-                formam o descritivo Flamengo, para você deixar estampada a sua
-                paixão pelo Mengão. Garanta a sua Camisa!
-              </p>
+              <p>{description}</p>
 
               <ul className="c-product-featured__features">
-                <li>
-                  <b>Cor</b>: Branco
-                </li>
-                <li>
-                  <b>Time</b>: Internacional
-                </li>
-                <li>
-                  <b>Gênero</b>: Masculino
-                </li>
-                <li>
-                  <b>Marca</b>: Adidas
-                </li>
+                {color && (
+                  <li>
+                    <b>Cor</b>: {color}
+                  </li>
+                )}
+                {team && (
+                  <li>
+                    <b>Time</b>: {team}
+                  </li>
+                )}
+                {genre && (
+                  <li>
+                    <b>Gênero</b>: {genre}
+                  </li>
+                )}
+                {brand && (
+                  <li>
+                    <b>Marca</b>: {brand}
+                  </li>
+                )}
               </ul>
 
               <Button
@@ -66,4 +81,25 @@ const Product = () => {
   )
 }
 
-export default Product
+ProductFeatured.defaultProps = {
+  priceOld: null,
+  color: null,
+  team: null,
+  genre: null,
+  brand: null,
+}
+
+ProductFeatured.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  filename: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  priceOld: PropTypes.number,
+  color: PropTypes.string,
+  team: PropTypes.string,
+  genre: PropTypes.string,
+  brand: PropTypes.string,
+}
+
+export default ProductFeatured

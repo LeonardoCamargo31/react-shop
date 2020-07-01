@@ -17,9 +17,10 @@ const AllProducts = () => {
         <Grid>
           <Title text="Todos os produtos" type="secondary" />
           <Row>
-            {Products.map(({ title, price, filename, priceOld }) => (
-              <Col sm={12} md={3}>
+            {Products.map(({ id, title, price, filename, priceOld }) => (
+              <Col sm={12} md={3} key={id}>
                 <Product
+                  id={id}
                   title={title}
                   price={price}
                   image={filename}

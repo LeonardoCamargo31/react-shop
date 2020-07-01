@@ -13,7 +13,7 @@ import './styles/main.scss'
 ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={Index} />
-    <Route exact path="/produto" component={Product} />
+    <Route exact path="/produto/:productId" component={Product} />
     <Route exact path="/produtos" component={AllProducts} />
     <Route exact path="/checkout" component={Checkout} />
   </BrowserRouter>,

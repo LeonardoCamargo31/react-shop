@@ -4,16 +4,16 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import ProductImage from '../ProductImage/ProductImage'
 
-const Product = ({ title, price, image, priceOld }) => {
+const Product = ({ id, title, price, image, priceOld }) => {
   return (
     <div className="c-product">
       <div className="c-product__image">
-        <Link to="/produto" title="">
+        <Link to={`/produto/${id}`} title={title}>
           <ProductImage image={image} alt={title} />
         </Link>
       </div>
       <h3>
-        <Link to="/produto" title="">
+        <Link to={`/produto/${id}`} title={title}>
           {title}
         </Link>
       </h3>
@@ -32,10 +32,11 @@ Product.defaultProps = {
 }
 
 Product.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  priceOld: PropTypes.string,
+  priceOld: PropTypes.number,
 }
 
 export default Product
