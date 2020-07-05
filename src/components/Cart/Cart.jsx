@@ -1,27 +1,38 @@
 /* eslint-disable global-require */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
+import { IoIosCloseCircleOutline, IoMdSad } from 'react-icons/io'
+
+import { connect } from 'react-redux'
 
 import Button from '../Button/Button'
 import ProductItem from '../ProductItem/ProductItem'
 
-// const renderEmptyCart = () => (
-//   <div className="c-cart__empty">
-//     <div className="c-cart__empty-icons">
-//       <IoMdSad />
-//     </div>
-//     <div className="c-cart__empty-content">
-//       <h4>Seu carrinho está vazio</h4>
-//       <p>
-//         Adicione produtos clicando no botão <i>“Adicionar ao carrinho”</i> na
-//         página de produto.
-//       </p>
-//     </div>
-//   </div>
-// )
+const renderEmptyCart = () => (
+  <div className="c-cart__empty">
+    <div className="c-cart__empty-icons">
+      <IoMdSad />
+    </div>
+    <div className="c-cart__empty-content">
+      <h4>Seu carrinho está vazio</h4>
+      <p>
+        Adicione produtos clicando no botão <i>“Adicionar ao carrinho”</i> na
+        página de produto.
+      </p>
+    </div>
+  </div>
+)
 
-const Cart = ({ isOpen, closeCart }) => {
+const sumTotalValue = (itens) => {
+  let totalValue = 0
+  itens.forEach((item) => {
+    totalValue += item.price * item.amount
+  })
+  return totalValue
+}
+
+const Cart = ({ isOpen, closeCart, cartData }) => {
+  console.log('my cart', cartData.itens)
   return (
     <>
       <div className="c-cart__backdrop" onClick={closeCart} />
@@ -39,13 +50,22 @@ const Cart = ({ isOpen, closeCart }) => {
           </div>
 
           <div className="c-cart__content">
-            <ProductItem />
-            <ProductItem />
+            {cartData.itens.length === 0 && renderEmptyCart()}
+
+            {cartData.itens.map((item) => (
+              <ProductItem
+                id={item.id}
+                title={item.title}
+                price={item.price}
+                image={item.filename}
+                amount={item.amount}
+              />
+            ))}
           </div>
           <div className="c-cart__bottom">
             <div className="c-cart__bottom-total">
               <b>Valor total</b>
-              <span> R$ 29,50</span>
+              <span> R$ {sumTotalValue(cartData.itens)}</span>
             </div>
 
             <Button
@@ -67,4 +87,10 @@ Cart.propTypes = {
   closeCart: PropTypes.func.isRequired,
 }
 
-export default Cart
+const mapStateToProps = (state) => {
+  return {
+    cartData: state.cart,
+  }
+}
+
+export default connect(mapStateToProps, {})(Cart)

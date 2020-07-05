@@ -1,10 +1,17 @@
 .c-product-item {
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+
+  &:last-child {
+    padding-bottom: 0rem;
+    border-bottom: none;
+  }
 
   .c-product-item__image {
     margin-right: 1rem;
-    width: 100px;
+    flex: 1;
     display: none;
 
     @media (min-width: $grid-breakpoints-md) {
@@ -13,7 +20,7 @@
   }
 
   .c-product-item__content {
-    margin-right: 1rem;
+    flex: 3;
 
     h3 {
       font-weight: 600;
@@ -60,6 +67,7 @@
   .c-product-item__price {
     display: flex;
     flex: 1;
+    margin-left: 1rem;
     justify-content: flex-end;
     align-items: center;
   }

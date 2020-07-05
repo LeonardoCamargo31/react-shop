@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Link } from 'react-router-dom'
-import Cart from '../Cart/Cart'
 
+import { connect } from 'react-redux'
+
+import Cart from '../Cart/Cart'
 import Button from '../Button/Button'
 
 class Header extends Component {
@@ -50,7 +52,21 @@ class Header extends Component {
     }
   }
 
+  formatText(cart) {
+    console.log('--------------------')
+    console.log(cart.itens)
+    const quantityProducts = cart.itens.length
+    if (quantityProducts === 0) {
+      return 'Nenhum item'
+    }
+    if (quantityProducts === 1) {
+      return `${quantityProducts} item`
+    }
+    return `${quantityProducts} itens`
+  }
+
   render() {
+    const { cartHeader } = this.props
     const { cartIsOpen } = this.state
     return (
       <>
@@ -114,7 +130,7 @@ class Header extends Component {
                     onClick={this.handleCart}
                     type="primary"
                     iconName="IoMdCart"
-                    text="Nenhum produto"
+                    text={this.formatText(cartHeader)}
                   />
                 </div>
               </Col>
@@ -126,4 +142,11 @@ class Header extends Component {
   }
 }
 
-export default Header
+// mapeando o state global para minha props
+const mapStateToProps = (state) => {
+  return {
+    cartHeader: state.cart,
+  }
+}
+
+export default connect(mapStateToProps, {})(Header)
