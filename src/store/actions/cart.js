@@ -1,5 +1,4 @@
 export function actionAddNewItem(newItem) {
-  console.log('newItem', newItem)
   return {
     type: 'ADD_NEW_ITEM',
     payload: {
@@ -13,12 +12,17 @@ export function actionAddNewItem(newItem) {
 }
 
 export function actionUpdateQuantity(item) {
-  console.log('update', item)
   return {
     type: 'UPDATE_QUANTITY',
     payload: {
       id: item.id,
       amount: item.amount,
     },
+  }
+}
+
+export function actionClearCart() {
+  return {
+    type: 'CLEAR_CART',
   }
 }

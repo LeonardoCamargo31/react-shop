@@ -26,4 +26,13 @@
       background: $color-pink-hover;
     }
   }
+
+  &--secondary {
+    color: $color-white;
+    background-color: $color-green;
+
+    &:hover {
+      background: $color-green-hover;
+    }
+  }
 }

@@ -4,8 +4,9 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_NEW_ITEM':
+    case 'ADD_NEW_ITEM': {
       return { ...state, itens: [...state.itens, action.payload] }
+    }
     case 'UPDATE_QUANTITY': {
       const itens = [...state.itens]
       itens.forEach((item, index) => {
@@ -18,8 +19,12 @@ export default function reducer(state = initialState, action) {
       })
       return { ...state, itens }
     }
-    default:
+    case 'CLEAR_CART': {
+      return initialState
+    }
+    default: {
       // retorna meu estado padrão
       return state
+    }
   }
 }

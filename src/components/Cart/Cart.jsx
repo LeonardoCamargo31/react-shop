@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { IoIosCloseCircleOutline, IoMdSad } from 'react-icons/io'
 
 import { connect } from 'react-redux'
+import { actionClearCart } from '../../store/actions/cart'
 
 import Button from '../Button/Button'
 import ProductItem from '../ProductItem/ProductItem'
@@ -31,8 +32,7 @@ const sumTotalValue = (itens) => {
   return totalValue
 }
 
-const Cart = ({ isOpen, closeCart, cartData }) => {
-  console.log('my cart', cartData.itens)
+const Cart = ({ isOpen, closeCart, cartData, clearCart }) => {
   return (
     <>
       <div className="c-cart__backdrop" onClick={closeCart} />
@@ -68,14 +68,21 @@ const Cart = ({ isOpen, closeCart, cartData }) => {
               <b>Valor total</b>
               <span> R$ {sumTotalValue(cartData.itens)}</span>
             </div>
-
-            <Button
-              onClick={closeCart}
-              link="/checkout"
-              type="primary"
-              iconName="IoMdCart"
-              text="Finalizar compra"
-            />
+            <div className="c-cart__actions">
+              <Button
+                onClick={closeCart}
+                link="/checkout"
+                type="primary"
+                iconName="IoMdCart"
+                text="Finalizar"
+              />
+              <Button
+                onClick={clearCart}
+                type="secondary"
+                iconName="IoIosTrash"
+                text="Limpar"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -94,4 +101,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {})(Cart)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearCart: () => dispatch(actionClearCart()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
