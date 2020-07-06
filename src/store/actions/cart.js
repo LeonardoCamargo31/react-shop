@@ -1,5 +1,5 @@
-export function addNewItem(newItem) {
-  console.log('call action addToCart', newItem)
+export function actionAddNewItem(newItem) {
+  console.log('newItem', newItem)
   return {
     type: 'ADD_NEW_ITEM',
     payload: {
@@ -12,7 +12,8 @@ export function addNewItem(newItem) {
   }
 }
 
-export function updateQuantity(item) {
+export function actionUpdateQuantity(item) {
+  console.log('update', item)
   return {
     type: 'UPDATE_QUANTITY',
     payload: {

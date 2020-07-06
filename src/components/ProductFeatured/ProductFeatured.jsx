@@ -1,134 +1,135 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import PropTypes from 'prop-types'
 
 import { connect } from 'react-redux'
-import { addNewItem, updateQuantity } from '../../store/actions/cart'
+import {
+  actionAddNewItem,
+  actionUpdateQuantity,
+} from '../../store/actions/cart'
 
 import ProductImage from '../ProductImage/ProductImage'
 import Button from '../Button/Button'
 
-class ProductFeatured extends Component {
-  constructor(props) {
-    super(props)
-  }
+const handleOnClick = (
+  id,
+  title,
+  filename,
+  price,
+  addNewItem,
+  updateQuantity,
+  cartData
+) => {
+  const hasItemInCart = cartData.itens.filter((item) => item.id === id)
 
-  handleOnClick = () => {
-    const {
+  if (hasItemInCart.length > 0) {
+    const { amount } = hasItemInCart[0]
+    const item = {
       id,
-      title,
-      filename,
-      price,
-      addNewItem,
-      updateQuantity,
-      cart,
-    } = this.props
-    let newItem
-
-    const hasItemInCart = cart.itens.filter((item) => item.id === id)
-
-    console.log('hasItemInCart', hasItemInCart)
-
-    if (hasItemInCart.length > 0) {
-      const { amount } = hasItemInCart[0]
-      newItem = {
-        id,
-        amount: amount + 1,
-      }
-      console.log('updateItem', newItem)
-      updateQuantity(newItem)
-    } else {
-      newItem = {
-        id,
-        title,
-        filename,
-        price,
-        amount: 1,
-      }
-      console.log('newItem', newItem)
-      // disparar minha action todo
-      addNewItem(newItem)
+      amount: amount + 1,
     }
-  }
-
-  render() {
-    const {
+    updateQuantity(item)
+  } else {
+    const item = {
       id,
       title,
-      price,
       filename,
-      priceOld,
-      description,
-      color,
-      team,
-      genre,
-      brand,
-    } = this.props
-
-    return (
-      <Grid>
-        <div className="c-product-featured">
-          <Row>
-            <Col sm={12} md={6}>
-              <div className="c-product-featured__image">
-                <ProductImage image={filename} alt={title} />
-              </div>
-            </Col>
-            <Col sm={12} md={6}>
-              <div className="c-product-featured__content">
-                <h1 className="c-product-featured__title">{title}</h1>
-                <div className="c-product-featured__price">
-                  <span className="c-product-featured__price-current">
-                    R$ {price}
-                  </span>
-                  {priceOld && (
-                    <span className="c-product-featured__price-old">
-                      R$ {priceOld}
-                    </span>
-                  )}
-                </div>
-                <div className="c-product-featured__discount">
-                  Economia de R$ 30,00 (10%)
-                </div>
-
-                <p>{description}</p>
-
-                <ul className="c-product-featured__features">
-                  {color && (
-                    <li>
-                      <b>Cor</b>: {color}
-                    </li>
-                  )}
-                  {team && (
-                    <li>
-                      <b>Time</b>: {team}
-                    </li>
-                  )}
-                  {genre && (
-                    <li>
-                      <b>Gênero</b>: {genre}
-                    </li>
-                  )}
-                  {brand && (
-                    <li>
-                      <b>Marca</b>: {brand}
-                    </li>
-                  )}
-                </ul>
-
-                <Button
-                  onClick={() => this.handleOnClick()}
-                  type="primary"
-                  iconName="IoIosAddCircle"
-                  text="Adicionar ao carrinho"
-                />
-              </div>
-            </Col>
-          </Row>
-        </div>
-      </Grid>
-    )
+      price,
+      amount: 1,
+    }
+    // disparar minha action todo
+    addNewItem(item)
   }
+}
+
+const ProductFeatured = ({
+  id,
+  title,
+  price,
+  filename,
+  priceOld,
+  description,
+  color,
+  team,
+  genre,
+  brand,
+  addNewItem,
+  updateQuantity,
+  cartData,
+}) => {
+  return (
+    <Grid>
+      <div className="c-product-featured">
+        <Row>
+          <Col sm={12} md={6}>
+            <div className="c-product-featured__image">
+              <ProductImage image={filename} alt={title} />
+            </div>
+          </Col>
+          <Col sm={12} md={6}>
+            <div className="c-product-featured__content">
+              <h1 className="c-product-featured__title">{title}</h1>
+              <div className="c-product-featured__price">
+                <span className="c-product-featured__price-current">
+                  R$ {price}
+                </span>
+                {priceOld && (
+                  <span className="c-product-featured__price-old">
+                    R$ {priceOld}
+                  </span>
+                )}
+              </div>
+              <div className="c-product-featured__discount">
+                Economia de R$ 30,00 (10%)
+              </div>
+
+              <p>{description}</p>
+
+              <ul className="c-product-featured__features">
+                {color && (
+                  <li>
+                    <b>Cor</b>: {color}
+                  </li>
+                )}
+                {team && (
+                  <li>
+                    <b>Time</b>: {team}
+                  </li>
+                )}
+                {genre && (
+                  <li>
+                    <b>Gênero</b>: {genre}
+                  </li>
+                )}
+                {brand && (
+                  <li>
+                    <b>Marca</b>: {brand}
+                  </li>
+                )}
+              </ul>
+
+              <Button
+                onClick={() =>
+                  handleOnClick(
+                    id,
+                    title,
+                    filename,
+                    price,
+                    addNewItem,
+                    updateQuantity,
+                    cartData
+                  )
+                }
+                type="primary"
+                iconName="IoIosAddCircle"
+                text="Adicionar ao carrinho"
+              />
+            </div>
+          </Col>
+        </Row>
+      </div>
+    </Grid>
+  )
 }
 
 ProductFeatured.defaultProps = {
@@ -150,18 +151,20 @@ ProductFeatured.propTypes = {
   team: PropTypes.string,
   genre: PropTypes.string,
   brand: PropTypes.string,
+  addNewItem: PropTypes.func.isRequired,
+  updateQuantity: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart,
+    cartData: state.cart,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addNewItem: (value) => dispatch(addNewItem(value)),
-    updateQuantity: (value) => dispatch(updateQuantity(value)),
+    addNewItem: (value) => dispatch(actionAddNewItem(value)),
+    updateQuantity: (value) => dispatch(actionUpdateQuantity(value)),
   }
 }
 

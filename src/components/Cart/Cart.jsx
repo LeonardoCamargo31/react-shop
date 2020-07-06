@@ -54,6 +54,7 @@ const Cart = ({ isOpen, closeCart, cartData }) => {
 
             {cartData.itens.map((item) => (
               <ProductItem
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 price={item.price}
