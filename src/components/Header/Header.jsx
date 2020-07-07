@@ -141,7 +141,19 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {}
+Header.propTypes = {
+  cartData: PropTypes.shape({
+    itens: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        filename: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+}
 
 // mapeando o state global para minha props
 const mapStateToProps = (state) => {

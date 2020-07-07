@@ -11,6 +11,7 @@ import AllProducts from './containers/AllProducts'
 import Checkout from './containers/Checkout'
 
 import './styles/main.scss'
+import 'react-toastify/dist/ReactToastify.css'
 
 ReactDOM.render(
   <Provider store={store}>

@@ -83,6 +83,17 @@ ProductItem.propTypes = {
   price: PropTypes.number.isRequired,
   amount: PropTypes.number.isRequired,
   updateQuantity: PropTypes.func.isRequired,
+  cartData: PropTypes.shape({
+    itens: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        filename: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 }
 
 const mapStateToProps = (state) => {

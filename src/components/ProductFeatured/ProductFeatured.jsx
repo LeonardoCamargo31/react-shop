@@ -1,6 +1,7 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import PropTypes from 'prop-types'
+import { toast } from 'react-toastify'
 
 import { connect } from 'react-redux'
 import {
@@ -10,6 +11,17 @@ import {
 
 import ProductImage from '../ProductImage/ProductImage'
 import Button from '../Button/Button'
+
+const notify = () =>
+  toast.success('Produto adicionado ao carrinho!', {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  })
 
 const handleOnClick = (
   id,
@@ -29,6 +41,7 @@ const handleOnClick = (
       amount: amount + 1,
     }
     updateQuantity(item)
+    notify()
   } else {
     const item = {
       id,
@@ -39,6 +52,7 @@ const handleOnClick = (
     }
     // disparar minha action todo
     addNewItem(item)
+    notify()
   }
 }
 
@@ -153,6 +167,17 @@ ProductFeatured.propTypes = {
   brand: PropTypes.string,
   addNewItem: PropTypes.func.isRequired,
   updateQuantity: PropTypes.func.isRequired,
+  cartData: PropTypes.shape({
+    itens: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        filename: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 }
 
 const mapStateToProps = (state) => {

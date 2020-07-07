@@ -76,12 +76,14 @@ const Cart = ({ isOpen, closeCart, cartData, clearCart }) => {
                 iconName="IoMdCart"
                 text="Finalizar"
               />
-              <Button
-                onClick={clearCart}
-                type="secondary"
-                iconName="IoIosTrash"
-                text="Limpar"
-              />
+              {cartData.itens.length > 0 && (
+                <Button
+                  onClick={clearCart}
+                  type="secondary"
+                  iconName="IoIosTrash"
+                  text="Limpar"
+                />
+              )}
             </div>
           </div>
         </div>
@@ -93,6 +95,18 @@ const Cart = ({ isOpen, closeCart, cartData, clearCart }) => {
 Cart.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeCart: PropTypes.func.isRequired,
+  clearCart: PropTypes.func.isRequired,
+  cartData: PropTypes.shape({
+    itens: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        filename: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        amount: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
 }
 
 const mapStateToProps = (state) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, Col, Row } from 'react-flexbox-grid'
+import { ToastContainer } from 'react-toastify'
 
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
@@ -101,6 +102,7 @@ class ProductPage extends Component {
           </Grid>
         </section>
         <Footer />
+        <ToastContainer />
       </>
     )
   }
